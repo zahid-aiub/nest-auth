@@ -5,8 +5,9 @@ import {LocalAuthGuard} from "../gurds/local-auth.guard";
 import {JwtAuthGuard} from "../gurds/jwt-auth.guard";
 
 @Controller('auth')
-export  class  AuthController {
-    constructor(private  readonly  authService: AuthService) {}
+export class AuthController {
+    constructor(private readonly  authService: AuthService) {
+    }
 
     @UseGuards(LocalAuthGuard)
     @Post('login')
