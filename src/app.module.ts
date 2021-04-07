@@ -3,7 +3,7 @@ import {AppController} from './app.controller';
 import {AppService} from './app.service';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import {AuthModule} from './auth/auth.module';
-import {User} from "./auth/user.entity";
+import {User} from "./auth/user/user.entity";
 import {RolesGuard} from "./gurds/roles.guard";
 import {APP_GUARD} from "@nestjs/core";
 

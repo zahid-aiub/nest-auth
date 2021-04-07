@@ -1,6 +1,6 @@
 import {Entity, Column, PrimaryGeneratedColumn, BeforeInsert} from 'typeorm';
 import * as crypto from 'crypto';
-import {Role} from "./role.enum";
+import {Role} from "../../enums/role.enum";
 
 @Entity()
 export class User {
