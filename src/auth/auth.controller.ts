@@ -3,6 +3,10 @@ import {User} from './user/user.entity';
 import {AuthService} from "./auth.service";
 import {LocalAuthGuard} from "../gurds/local-auth.guard";
 import {JwtAuthGuard} from "../gurds/jwt-auth.guard";
+import {RolesGuard} from "../gurds/roles.guard";
+import {Roles} from "../decorators/roles.decorator";
+import {Role} from "../enums/role.enum";
+import {stat} from "fs";
 
 @Controller('auth')
 export class AuthController {
@@ -11,8 +15,8 @@ export class AuthController {
 
     @UseGuards(LocalAuthGuard)
     @Post('login')
-    async login(@Body() user: User): Promise<any> {
-        return this.authService.login(user);
+    async login(@Body() username: string, pass: string): Promise<any> {
+        return this.authService.login(username, pass);
     }
 
     @Post('register')
@@ -27,8 +31,8 @@ export class AuthController {
 
 
     @Get('secure')
-    // @Roles(Role.Admin)
-    @UseGuards(JwtAuthGuard)
+    @Roles(Role.Admin)
+    @UseGuards(JwtAuthGuard, RolesGuard)
     async secureApi(): Promise<any> {
         return "Secure API";
     }
