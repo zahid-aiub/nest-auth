@@ -1,8 +1,6 @@
-import {Controller, Post, Body, Get, UseGuards} from '@nestjs/common';
-import { User } from './user/user.entity';
+import {Body, Controller, Get, Post, UseGuards} from '@nestjs/common';
+import {User} from './user/user.entity';
 import {AuthService} from "./auth.service";
-import {Roles} from "../decorators/roles.decorator";
-import {Role} from "../enums/role.enum";
 import {LocalAuthGuard} from "../gurds/local-auth.guard";
 import {JwtAuthGuard} from "../gurds/jwt-auth.guard";
 

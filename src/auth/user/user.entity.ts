@@ -27,6 +27,10 @@ export class User {
     @Column()
     password: string;
 
-    @Column({ type: 'simple-array', select: false })
+    @Column({
+        type: "enum",
+        enum: Role,
+        default: [Role.User]
+    })
     roles: Role[];
 }

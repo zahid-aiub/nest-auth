@@ -16,7 +16,7 @@ import {APP_GUARD} from "@nestjs/core";
           username: 'root',
           password: '',
           database: 'islamic_book',
-          "entities": [User],  //"dist/**/*.entity{.ts,.js}"
+          entities: [User],  //"dist/**/*.entity{.ts,.js}"
           synchronize: true,
       }),
       AuthModule,
@@ -24,10 +24,10 @@ import {APP_GUARD} from "@nestjs/core";
   ],
   controllers: [AppController],
   providers: [
-      {
+      /*{
           provide: APP_GUARD,
           useClass: RolesGuard,
-      }
-      ,AppService],
+      },*/
+      AppService],
 })
 export class AppModule {}
